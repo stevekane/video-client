@@ -1,3 +1,5 @@
-App = Ember.Application.create()
+window.App = Ember.Application.create()
 
-console.log "yo"
+require('Models.js')
+require('Router.js')
+require('Store.js')
