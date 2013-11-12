@@ -1,0 +1,8 @@
+test/compiled-tests/
+public/compiled-js/
+.sass-cache/
+*.swp
+*.swo
+*.orig
+node_modules/
+npm-debug.log

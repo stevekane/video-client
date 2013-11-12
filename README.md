@@ -1,4 +1,3 @@
-video-client
-============
+#Video Client Overview
 
-This is the client for the upcoming open source video tutorial creation platform
+This is the content creation application used to generate videos.
