@@ -6,7 +6,7 @@ minispade.require('Models.js');
 minispade.require('Fixtures.js');
 minispade.require('Router.js');
 minispade.require('Store.js');
-minispade.require('utils/Handlebars.js');
+minispade.require('Utils.js');
 
 });
 
@@ -69,6 +69,12 @@ App.Store = DS.Store.extend({
 
 });
 
+minispade.register('Utils.js', function() {
+
+minispade.require('utils/Handlebars.js');
+
+});
+
 minispade.register('components/KaneCreateVideoComponent.js', function() {
 App.KaneCreateVideoComponent = Ember.Component.extend({
   newTitle: "",
@@ -88,14 +94,7 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
 });
 
 minispade.register('components/KaneVideoPreviewComponent.js', function() {
-App.KaneVideoPreviewComponent = Ember.Component.extend({
-  full: true,
-  actions: {
-    toggleFull: function() {
-      return this.toggleProperty("full");
-    }
-  }
-});
+App.KaneVideoPreviewComponent = Ember.Component.extend();
 
 });
 
