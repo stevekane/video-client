@@ -41,11 +41,12 @@ minispade.register('Router.js', function() {
 minispade.require('routes/Application.js');
 minispade.require('routes/Index.js');
 minispade.require('routes/Videos.js');
+minispade.require('routes/Videos/Detail.js');
 
 App.Router.map(function() {
   this.resource("videos", function() {
     return this.route("detail", {
-      path: "/:video_id"
+      path: "/:video_id/:video_slug"
     });
   });
   return this.resource("video", {
@@ -159,7 +160,10 @@ App.Video = DS.Model.extend({
   summary: attr(),
   body: attr(),
   mp4_url: attr(),
-  archived: attr()
+  archived: attr(),
+  slug: Ember.computed("title", function() {
+    return Ember.String.dasherize(this.get('title'));
+  })
 });
 
 });
@@ -192,6 +196,24 @@ minispade.register('routes/Videos.js', function() {
 App.VideosRoute = Ember.Route.extend({
   model: function() {
     return this.store.find("video");
+  }
+});
+
+});
+
+minispade.register('routes/Videos/Detail.js', function() {
+App.VideosDetailRoute = Ember.Route.extend({
+  model: function(params) {
+    var id, slug;
+    id = parseInt(params.video_id);
+    slug = params.video_slug;
+    return this.store.find("video", id);
+  },
+  serialize: function(model) {
+    return {
+      video_id: model.get('id'),
+      video_slug: model.get('slug') || model.get('title')
+    };
   }
 });
 
