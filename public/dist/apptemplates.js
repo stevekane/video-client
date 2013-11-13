@@ -72,11 +72,11 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h1>\n<small class=\"text-small\">");
+  data.buffer.push("</h1>\n<h2 class=\"text-h2\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.subtitle", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</small>\n");
+  data.buffer.push("</h2>\n");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
@@ -132,13 +132,13 @@ function program4(depth0,data) {
   data.buffer.push("\n      </div>\n    </header>\n\n    <section class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"list-group\">\n          ");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.each.call(depth0, "video", "in", "content", {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.each.call(depth0, "video", "in", "activeVideos", {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </div>\n      </div>\n    </section>\n  </aside>\n\n  <section class=\"col-md-9\">\n    <section class=\"row\">\n      <div class=\"col-md-12\">\n        ");
+  data.buffer.push("\n        </div>\n      </div>\n    </section>\n  </aside>\n\n  <section class=\"col-md-9\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("          \n      </div> \n    </section>  \n  </section>\n\n</section>\n");
+  data.buffer.push("          \n      </div> \n    </div>  \n  </section>\n\n</section>\n");
   return buffer;
   
 });

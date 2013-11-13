@@ -1,6 +1,7 @@
 minispade.register('Application.js', function() {
 window.App = Ember.Application.create();
 minispade.require('Components.js');
+minispade.require('Controllers.js');
 minispade.require('Models.js');
 minispade.require('Fixtures.js');
 minispade.require('Router.js');
@@ -12,6 +13,12 @@ minispade.require('utils/Handlebars.js');
 minispade.register('Components.js', function() {
 
 minispade.require('components/KaneCreateVideoComponent.js');
+
+});
+
+minispade.register('Controllers.js', function() {
+
+minispade.require('controllers/Videos.js');
 
 });
 
@@ -78,6 +85,17 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
 
 });
 
+minispade.register('controllers/Videos.js', function() {
+var filterProperty;
+
+filterProperty = Ember.computed.filterProperty;
+
+App.VideosController = Ember.ArrayController.extend({
+  activeVideos: filterProperty("content", "archived", false)
+});
+
+});
+
 minispade.register('fixtures/Video.js', function() {
 var video1, video2, video3;
 
@@ -85,21 +103,24 @@ video1 = {
   id: 0,
   body: "#Hey you guys\n###let's talk about why this isn't workin\nSometimes it just seems like the devil is going to take all the cheese na mean?  Ya dawg, dat cheeze.",
   title: "Whatever you want bro",
-  subtitle: "Johnny 5 checks out for good"
+  subtitle: "Johnny 5 checks out for good",
+  archived: false
 };
 
 video2 = {
   id: 1,
   body: "###Heyoooo",
   title: "Freedom from tyranny",
-  subtitle: "How the west was won"
+  subtitle: "How the west was won",
+  archived: false
 };
 
 video3 = {
   id: 2,
   body: "#Yo dog",
   title: "Do it up",
-  subtitle: "Darmok and Jalad at Tanagra"
+  subtitle: "Darmok and Jalad at Tanagra",
+  archived: false
 };
 
 App.Video.FIXTURES = [video1, video2, video3];
@@ -115,7 +136,8 @@ App.Video = DS.Model.extend({
   title: attr(),
   subtitle: attr(),
   summary: attr(),
-  body: attr()
+  body: attr(),
+  archived: attr()
 });
 
 });
@@ -125,6 +147,9 @@ App.ApplicationRoute = Ember.Route.extend({
   actions: {
     createVideo: function(hash) {
       return this.store.createRecord("video", hash);
+    },
+    deleteVideo: function(video) {
+      return video.set("archived", true);
     }
   }
 });

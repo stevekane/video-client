@@ -11,7 +11,7 @@
     <section class="row">
       <div class="col-md-12">
         <div class="list-group">
-          {{#each video in content}}
+          {{#each video in activeVideos}}
             {{#link-to "videos.detail" video
               classNames="list-group-item"}}
               {{video.title}}
@@ -25,11 +25,11 @@
   </aside>
 
   <section class="col-md-9">
-    <section class="row">
+    <div class="row">
       <div class="col-md-12">
         {{outlet}}          
       </div> 
-    </section>  
+    </div>  
   </section>
 
 </section>

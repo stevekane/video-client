@@ -6,3 +6,4 @@ App.Video = DS.Model.extend
   subtitle: attr()
   summary: attr()
   body: attr()
+  archived: attr()

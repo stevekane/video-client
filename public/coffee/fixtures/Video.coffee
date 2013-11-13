@@ -3,20 +3,23 @@ video1 =
   body: """
     #Hey you guys\n###let's talk about why this isn't workin\nSometimes it just seems like the devil is going to take all the cheese na mean?  Ya dawg, dat cheeze.
     """,
-  title: "Whatever you want bro"
-  subtitle: "Johnny 5 checks out for good"
+  title: "Whatever you want bro",
+  subtitle: "Johnny 5 checks out for good",
+  archived: false
 
 video2 =
   id: 1,
   body: "###Heyoooo",
   title: "Freedom from tyranny"
-  subtitle: "How the west was won"
+  subtitle: "How the west was won",
+  archived: false
 
 video3 =
   id: 2,
   body: "#Yo dog",
   title: "Do it up",
-  subtitle: "Darmok and Jalad at Tanagra"
+  subtitle: "Darmok and Jalad at Tanagra",
+  archived: false
 
 App.Video.FIXTURES = [
   video1, video2, video3
