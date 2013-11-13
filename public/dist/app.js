@@ -155,7 +155,11 @@ var showdown;
 showdown = new Showdown.converter();
 
 Ember.Handlebars.registerBoundHelper("markdown", function(text) {
-  return new Ember.Handlebars.SafeString(showdown.makeHtml(text));
+  if (text) {
+    return new Ember.Handlebars.SafeString(showdown.makeHtml(text));
+  } else {
+    return "";
+  }
 });
 
 });
