@@ -7,6 +7,7 @@ minispade.require('Fixtures.js');
 minispade.require('Router.js');
 minispade.require('Store.js');
 minispade.require('Utils.js');
+minispade.require('Mixins.js');
 
 });
 
@@ -27,6 +28,11 @@ minispade.require('controllers/Videos.js');
 minispade.register('Fixtures.js', function() {
 
 minispade.require('fixtures/Video.js');
+
+});
+
+minispade.register('Mixins.js', function() {
+
 
 });
 
@@ -212,7 +218,7 @@ App.VideosDetailRoute = Ember.Route.extend({
   serialize: function(model) {
     return {
       video_id: model.get('id'),
-      video_slug: model.get('slug') || model.get('title')
+      video_slug: model.get('slug')
     };
   }
 });

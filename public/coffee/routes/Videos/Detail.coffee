@@ -8,5 +8,5 @@ App.VideosDetailRoute = Ember.Route.extend
   serialize: (model) ->
     return {
       video_id: model.get('id')
-      video_slug: model.get('slug') || model.get('title')
+      video_slug: model.get('slug')
     }
