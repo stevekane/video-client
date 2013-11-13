@@ -1,5 +1,6 @@
 test/compiled-tests/
 public/compiled-js/
+public/videos/
 .sass-cache/
 *.swp
 *.swo
