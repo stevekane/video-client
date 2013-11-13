@@ -1,0 +1,37 @@
+<section class="row">
+
+  <aside class="col-md-4">
+    <header class="row">
+      <div class="col-md-12">
+        <span class="pull-left">All Videos</span>
+        <button class="btn btn-xs btn-primary pull-right">
+          +
+        </button>
+      </div>
+    </header>
+
+    <section class="row">
+      <div class="col-md-12">
+        <div class="list-group">
+          {{#each video in content}}
+            {{#link-to "videos.detail" video
+              classNames="list-group-item"}}
+              {{video.title}}
+            {{/link-to}}
+          {{else}}
+            <h3>There are no videos</h3>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <section class="col-md-8">
+    <section class="row">
+      <div class="col-md-12">
+        {{outlet}}          
+      </div> 
+    </section>  
+  </section>
+
+</section>
