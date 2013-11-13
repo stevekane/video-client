@@ -1,12 +1,22 @@
 <header class="row">
-  <div class="col-md-12">
-    <h1>{{title}}</h1>
-    <small class="text-small">{{subtitle}}</small>
+  <div class="col-md-12 well well-sm">
+    <button class="btn btn-danger"
+    {{action "deleteVideo" content}}>
+      <i class="glyphicon glyphicon-remove-circle"></i>
+      DELETE
+    </button>
+    {{#link-to "video.edit" content
+    classNames="btn btn-primary"}}
+      <i class="glyphicon glyphicon-pencil"></i>
+      EDIT
+    {{/link-to}}
   </div>
 </header>
 
 <section class="row">
   <div class="col-md-12">
+    <h1>{{title}}</h1>
+    <small class="text-small">{{subtitle}}</small>
     {{markdown body}}
   </div>
 </section>

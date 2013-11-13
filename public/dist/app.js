@@ -1,10 +1,17 @@
 minispade.register('Application.js', function() {
 window.App = Ember.Application.create();
+minispade.require('Components.js');
 minispade.require('Models.js');
 minispade.require('Fixtures.js');
 minispade.require('Router.js');
 minispade.require('Store.js');
 minispade.require('utils/Handlebars.js');
+
+});
+
+minispade.register('Components.js', function() {
+
+minispade.require('components/KaneCreateVideoComponent.js');
 
 });
 
@@ -53,6 +60,24 @@ App.Store = DS.Store.extend({
 
 });
 
+minispade.register('components/KaneCreateVideoComponent.js', function() {
+App.KaneCreateVideoComponent = Ember.Component.extend({
+  newTitle: "",
+  actions: {
+    verifyAndCreate: function(newTitle) {
+      if (!newTitle) {
+        return;
+      }
+      this.sendAction("action", {
+        title: newTitle
+      });
+      return this.set("newTitle", "");
+    }
+  }
+});
+
+});
+
 minispade.register('fixtures/Video.js', function() {
 var video1, video2, video3;
 
@@ -96,7 +121,13 @@ App.Video = DS.Model.extend({
 });
 
 minispade.register('routes/Application.js', function() {
-App.ApplicationRoute = Ember.Route.extend();
+App.ApplicationRoute = Ember.Route.extend({
+  actions: {
+    createVideo: function(hash) {
+      return this.store.createRecord("video", hash);
+    }
+  }
+});
 
 });
 

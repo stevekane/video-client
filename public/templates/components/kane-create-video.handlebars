@@ -1,0 +1,12 @@
+<div class="input-group">
+  <div class="input-group-btn">
+    <button class="btn btn-primary"
+    {{action "verifyAndCreate" newTitle}}>
+      <i class="glyphicon glyphicon-plus-sign"></i>
+      NEW VIDEO
+    </button>
+  </div>
+  {{input value=newTitle
+    placeholder="Video title"
+    classNames="form-control"}}
+</div>

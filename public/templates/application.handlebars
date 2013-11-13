@@ -1,17 +1,16 @@
 <!-- HEADER -->
-<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      {{#link-to "index" classNames="navbar-brand"}}
-        darkcloud.io 
-      {{/link-to}} 
-    </div>
-
-    <ul class="nav navbar-nav pull-left">
-      <li>{{#link-to "videos"}}Videos{{/link-to}}</li>
-    </ul>
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="navbar-header">
+    {{#link-to "index" classNames="navbar-brand"}}
+      darkcloud.io
+      <i class="glyphicon glyphicon-cloud"></i>
+    {{/link-to}} 
   </div>
-</div>
+
+  <ul class="nav navbar-nav pull-left">
+    <li>{{#link-to "videos"}}Videos{{/link-to}}</li>
+  </ul>
+</nav>
 
 <div class="container">
   {{outlet}}

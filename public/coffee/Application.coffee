@@ -1,5 +1,6 @@
 window.App = Ember.Application.create()
 
+require('Components.js')
 require('Models.js')
 require('Fixtures.js')
 require('Router.js')
