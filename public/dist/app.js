@@ -169,6 +169,7 @@ minispade.register('routes/Application.js', function() {
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
     createVideo: function(hash) {
+      hash.archived = false;
       return this.store.createRecord("video", hash);
     },
     deleteVideo: function(video) {
