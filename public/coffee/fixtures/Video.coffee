@@ -5,6 +5,7 @@ video1 =
     """,
   title: "Whatever you want bro",
   subtitle: "Johnny 5 checks out for good",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 
 video2 =
@@ -12,6 +13,7 @@ video2 =
   body: "###Heyoooo",
   title: "Freedom from tyranny"
   subtitle: "How the west was won",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 
 video3 =
@@ -19,6 +21,7 @@ video3 =
   body: "#Yo dog",
   title: "Do it up",
   subtitle: "Darmok and Jalad at Tanagra",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 
 App.Video.FIXTURES = [

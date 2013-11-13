@@ -1,3 +1,30 @@
-<h1>{{video.title}}</h1>
-<h2 class="text-h2">{{video.subtitle}}</h2>
-{{markdown video.body}}
+<button class="btn btn-primary btn-xs"{{action "toggleFull"}}>
+  TOGGLE
+</button>
+
+<div class="row">
+
+  {{#if full}}
+    <div class="col-md-12">
+      <h1>{{video.title}}</h1>
+      <h2 class="text-h2">{{video.subtitle}}</h2>
+      {{kane-video-wrapper
+        src=video.mp4_url}}
+      {{markdown video.body}}
+    </div>
+
+  {{else}}
+
+    <div class="col-md-6">
+      <h1>{{video.title}}</h1>
+      <h2 class="text-h2">{{video.subtitle}}</h2>
+      {{markdown video.body}}
+    </div>
+
+    <div class="col-md-6">
+      {{kane-video-wrapper
+        src=video.mp4_url}}
+    </div> 
+    
+  {{/if}}
+</div>

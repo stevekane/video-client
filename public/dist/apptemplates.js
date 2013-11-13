@@ -48,7 +48,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "verifyAndCreate", "newTitle", {hash:{},contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n      <i class=\"glyphicon glyphicon-plus-sign\"></i>\n      NEW VIDEO\n    </button>\n  </div>\n  ");
+  data.buffer.push(">\n      <i class=\"glyphicon glyphicon-plus-sign\"></i>\n    </button>\n  </div>\n  ");
   hashContexts = {'value': depth0,'placeholder': depth0,'classNames': depth0};
   hashTypes = {'value': "ID",'placeholder': "STRING",'classNames': "STRING"};
   options = {hash:{
@@ -65,23 +65,90 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["components/kane-video-preview"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
-
-  data.buffer.push("<h1>");
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n    <div class=\"col-md-12\">\n      <h1>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h1>\n<h2 class=\"text-h2\">");
+  data.buffer.push("</h1>\n      <h2 class=\"text-h2\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.subtitle", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n");
+  data.buffer.push("</h2>\n      ");
+  hashContexts = {'src': depth0};
+  hashTypes = {'src': "ID"};
+  options = {hash:{
+    'src': ("video.mp4_url")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-video-wrapper'] || depth0['kane-video-wrapper']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-video-wrapper", options))));
+  data.buffer.push("\n      ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.markdown || depth0.markdown),stack1 ? stack1.call(depth0, "video.body", options) : helperMissing.call(depth0, "markdown", "video.body", options))));
-  data.buffer.push("\n");
+  data.buffer.push("\n    </div>\n\n  ");
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n\n    <div class=\"col-md-6\">\n      <h1>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h1>\n      <h2 class=\"text-h2\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "video.subtitle", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h2>\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.markdown || depth0.markdown),stack1 ? stack1.call(depth0, "video.body", options) : helperMissing.call(depth0, "markdown", "video.body", options))));
+  data.buffer.push("\n    </div>\n\n    <div class=\"col-md-6\">\n      ");
+  hashContexts = {'src': depth0};
+  hashTypes = {'src': "ID"};
+  options = {hash:{
+    'src': ("video.mp4_url")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-video-wrapper'] || depth0['kane-video-wrapper']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-video-wrapper", options))));
+  data.buffer.push("\n    </div> \n    \n  ");
+  return buffer;
+  }
+
+  data.buffer.push("<button class=\"btn btn-primary btn-xs\"");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleFull", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n  TOGGLE\n</button>\n\n<div class=\"row\">\n\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "full", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n</div>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["components/kane-video-wrapper"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<video ");
+  hashContexts = {'src': depth0};
+  hashTypes = {'src': "STRING"};
+  options = {hash:{
+    'src': ("src")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("\n  controls=true\n  height=\"100%\"\n  width=\"100%\">\n</video>\n");
   return buffer;
   
 });
@@ -151,14 +218,14 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("\n      <i class=\"glyphicon glyphicon-pencil\"></i>\n      EDIT\n    ");
+  data.buffer.push("\n      <i class=\"glyphicon glyphicon-pencil\"></i>\n    ");
   }
 
   data.buffer.push("<header class=\"row\">\n  <div class=\"col-md-12 well well-sm\">\n    <button class=\"btn btn-danger\"\n    ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "deleteVideo", "content", {hash:{},contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n      <i class=\"glyphicon glyphicon-remove-circle\"></i>\n      DELETE\n    </button>\n    ");
+  data.buffer.push(">\n      <i class=\"glyphicon glyphicon-remove-circle\"></i>\n    </button>\n    ");
   hashContexts = {'classNames': depth0};
   hashTypes = {'classNames': "STRING"};
   options = {hash:{

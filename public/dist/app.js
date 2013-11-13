@@ -13,6 +13,8 @@ minispade.require('utils/Handlebars.js');
 minispade.register('Components.js', function() {
 
 minispade.require('components/KaneCreateVideoComponent.js');
+minispade.require('components/KaneVideoPreviewComponent.js');
+minispade.require('components/KaneVideoWrapperComponent.js');
 
 });
 
@@ -85,6 +87,23 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
 
 });
 
+minispade.register('components/KaneVideoPreviewComponent.js', function() {
+App.KaneVideoPreviewComponent = Ember.Component.extend({
+  full: true,
+  actions: {
+    toggleFull: function() {
+      return this.toggleProperty("full");
+    }
+  }
+});
+
+});
+
+minispade.register('components/KaneVideoWrapperComponent.js', function() {
+App.KaneVideoWrapperComponent = Ember.Component.extend();
+
+});
+
 minispade.register('controllers/Videos.js', function() {
 var filterProperty;
 
@@ -104,6 +123,7 @@ video1 = {
   body: "#Hey you guys\n###let's talk about why this isn't workin\nSometimes it just seems like the devil is going to take all the cheese na mean?  Ya dawg, dat cheeze.",
   title: "Whatever you want bro",
   subtitle: "Johnny 5 checks out for good",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 };
 
@@ -112,6 +132,7 @@ video2 = {
   body: "###Heyoooo",
   title: "Freedom from tyranny",
   subtitle: "How the west was won",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 };
 
@@ -120,6 +141,7 @@ video3 = {
   body: "#Yo dog",
   title: "Do it up",
   subtitle: "Darmok and Jalad at Tanagra",
+  mp4_url: "/public/videos/test.mp4",
   archived: false
 };
 
@@ -137,6 +159,7 @@ App.Video = DS.Model.extend({
   subtitle: attr(),
   summary: attr(),
   body: attr(),
+  mp4_url: attr(),
   archived: attr()
 });
 
