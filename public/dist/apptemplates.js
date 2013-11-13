@@ -62,6 +62,38 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
+Ember.TEMPLATES["components/kane-floatlabel-input"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<span\n");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":float-label showFloatLabel:float-label-active:")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(">\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "placeholder", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n</span>\n");
+  hashContexts = {'type': depth0,'classNames': depth0,'placeholder': depth0,'value': depth0};
+  hashTypes = {'type': "ID",'classNames': "STRING",'placeholder': "ID",'value': "ID"};
+  options = {hash:{
+    'type': ("type"),
+    'classNames': ("form-control"),
+    'placeholder': ("placeholder"),
+    'value': ("value")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["components/kane-video-preview"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -107,6 +139,25 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
   data.buffer.push("\n  controls=true\n  height=\"100%\"\n  width=\"100%\">\n</video>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["video"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<section class=\"row\">\n\n  <header class=\"row\">\n    <div class=\"col-md-12\">\n      ");
+  hashContexts = {'value': depth0,'placeholder': depth0};
+  hashTypes = {'value': "ID",'placeholder': "STRING"};
+  options = {hash:{
+    'value': ("title"),
+    'placeholder': ("TITLE")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-floatlabel-input'] || depth0['kane-floatlabel-input']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-floatlabel-input", options))));
+  data.buffer.push("\n    </div>\n  </header>\n  <section class=\"col-md-6\">\n    <header class=\"row\">\n      <div class=\"col-md-12 well well-sm\">\n      </div>\n    </header>\n\n    <section class=\"row\">\n      <div class=\"col-md-12\">\n      </div>\n    </section>\n  </section>\n\n  <section class=\"col-md-6\">\n    <header class=\"row\">\n      <div class=\"col-md-12 well well-sm\">\n      </div>\n    </header>\n\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n      </div> \n    </div>  \n  </section>\n\n</section>\n");
   return buffer;
   
 });
@@ -189,7 +240,7 @@ function program1(depth0,data) {
   options = {hash:{
     'classNames': ("btn btn-primary")
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.edit", "content", options) : helperMissing.call(depth0, "link-to", "video.edit", "content", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video", "content", options) : helperMissing.call(depth0, "link-to", "video", "content", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n  </div>\n</header>\n\n<section class=\"row\">\n  <div class=\"col-md-12\">\n    ");
   hashContexts = {'video': depth0};

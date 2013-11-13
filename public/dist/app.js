@@ -16,6 +16,7 @@ minispade.register('Components.js', function() {
 minispade.require('components/KaneCreateVideoComponent.js');
 minispade.require('components/KaneVideoPreviewComponent.js');
 minispade.require('components/KaneVideoWrapperComponent.js');
+minispade.require('components/KaneFloatlabelInputComponent.js');
 
 });
 
@@ -48,6 +49,7 @@ minispade.require('routes/Application.js');
 minispade.require('routes/Index.js');
 minispade.require('routes/Videos.js');
 minispade.require('routes/Videos/Detail.js');
+minispade.require('routes/Video.js');
 
 App.Router.map(function() {
   this.resource("videos", function() {
@@ -57,13 +59,6 @@ App.Router.map(function() {
   });
   return this.resource("video", {
     path: "/video/:video_id"
-  }, function() {
-    this.route("edit", {
-      path: "/edit"
-    });
-    return this.route("preview", {
-      path: "/preview"
-    });
   });
 });
 
@@ -96,6 +91,14 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
       return this.set("newTitle", "");
     }
   }
+});
+
+});
+
+minispade.register('components/KaneFloatlabelInputComponent.js', function() {
+App.KaneFloatlabelInputComponent = Ember.Component.extend({
+  classNames: ["float-label-wrapper"],
+  showFloatLabel: Ember.computed.bool("value")
 });
 
 });
@@ -195,6 +198,11 @@ App.IndexRoute = Ember.Route.extend({
     return this.replaceWith("videos");
   }
 });
+
+});
+
+minispade.register('routes/Video.js', function() {
+App.VideoRoute = Ember.Route.extend();
 
 });
 
