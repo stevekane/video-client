@@ -103,11 +103,58 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
-Ember.TEMPLATES["components/kane-video-preview"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["components/kane-slide"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
+
+  data.buffer.push("<div class=\"panel panel-info\">\n  <header class=\"panel-heading\">\n    <h3 class=\"panel-title\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h3>\n  </header>\n  <div class=\"panel-body\">");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.markdown || depth0.markdown),stack1 ? stack1.call(depth0, "slide.content", options) : helperMissing.call(depth0, "markdown", "slide.content", options))));
+  data.buffer.push("</div>\n  <footer class=\"panel-footer\">\n    Slide Number: ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.number", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" of ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.video.slides.length", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n  </footer>\n</div>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["components/kane-video-preview"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n      ");
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("slide")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide'] || depth0['kane-slide']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide", options))));
+  data.buffer.push("\n    ");
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  data.buffer.push("\n      <h3 class=\"text-danger\">No slides</h3>\n    ");
+  }
 
   data.buffer.push("<div class=\"row\">\n  <div class=\"col-md-6\">\n    <h1>");
   hashTypes = {};
@@ -120,8 +167,8 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push("</h2>\n    ");
   hashTypes = {};
   hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.markdown || depth0.markdown),stack1 ? stack1.call(depth0, "video.body", options) : helperMissing.call(depth0, "markdown", "video.body", options))));
+  stack1 = helpers.each.call(depth0, "slide", "in", "video.slides", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </div>\n\n  <div class=\"col-md-6\">\n    ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "ID"};
@@ -165,7 +212,7 @@ function program1(depth0,data) {
   hashTypes = {'value': "ID",'classNames': "STRING",'placeholder': "STRING"};
   options = {hash:{
     'value': ("title"),
-    'classNames': ("form-control"),
+    'classNames': ("input-lg bare form-control"),
     'placeholder': ("TITLE")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
@@ -181,7 +228,7 @@ function program3(depth0,data) {
   hashTypes = {'value': "ID",'classNames': "STRING",'placeholder': "STRING"};
   options = {hash:{
     'value': ("subtitle"),
-    'classNames': ("form-control"),
+    'classNames': ("input-lg bare form-control"),
     'placeholder': ("SUBTITLE")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
@@ -198,7 +245,7 @@ function program5(depth0,data) {
   options = {hash:{
     'value': ("summary"),
     'rows': (4),
-    'classNames': ("form-control"),
+    'classNames': ("input-lg bare form-control"),
     'placeholder': ("SUMMARY")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.textarea || depth0.textarea),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
@@ -206,14 +253,7 @@ function program5(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<header class=\"row\">\n  <section class=\"col-md-12\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <video height=\"100%\" width=\"100%\" ");
-  hashContexts = {'src': depth0};
-  hashTypes = {'src': "STRING"};
-  options = {hash:{
-    'src': ("mp4_url")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(">\n        </video>\n      </div>\n      <div class=\"col-md-6\">\n        ");
+  data.buffer.push("<header class=\"row\">\n  <section class=\"col-md-12\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        ");
   hashContexts = {'value': depth0,'label': depth0};
   hashTypes = {'value': "ID",'label': "STRING"};
   options = {hash:{
@@ -222,7 +262,7 @@ function program5(depth0,data) {
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        ");
+  data.buffer.push("\n\n        ");
   hashContexts = {'value': depth0,'label': depth0};
   hashTypes = {'value': "ID",'label': "STRING"};
   options = {hash:{
@@ -231,7 +271,7 @@ function program5(depth0,data) {
   },inverse:self.noop,fn:self.program(3, program3, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        ");
+  data.buffer.push("\n      </div>\n\n      <div class=\"col-md-6\">\n        ");
   hashContexts = {'value': depth0,'label': depth0};
   hashTypes = {'value': "ID",'label': "STRING"};
   options = {hash:{

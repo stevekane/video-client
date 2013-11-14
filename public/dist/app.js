@@ -17,6 +17,7 @@ minispade.require('components/KaneCreateVideoComponent.js');
 minispade.require('components/KaneVideoPreviewComponent.js');
 minispade.require('components/KaneVideoWrapperComponent.js');
 minispade.require('components/KaneInputFloatlabelComponent.js');
+minispade.require('components/KaneSlideComponent.js');
 
 });
 
@@ -29,6 +30,7 @@ minispade.require('controllers/Videos.js');
 minispade.register('Fixtures.js', function() {
 
 minispade.require('fixtures/Video.js');
+minispade.require('fixtures/Slide.js');
 
 });
 
@@ -41,6 +43,7 @@ minispade.require('mixins/FloatLabelMixin.js');
 minispade.register('Models.js', function() {
 
 minispade.require('models/Video.js');
+minispade.require('models/Slide.js');
 
 });
 
@@ -101,6 +104,11 @@ App.KaneInputFloatlabelComponent = Ember.Component.extend(App.FloatLabelMixin, {
 
 });
 
+minispade.register('components/KaneSlideComponent.js', function() {
+App.KaneSlideComponent = Ember.Component.extend();
+
+});
+
 minispade.register('components/KaneVideoPreviewComponent.js', function() {
 App.KaneVideoPreviewComponent = Ember.Component.extend();
 
@@ -122,12 +130,67 @@ App.VideosController = Ember.ArrayController.extend({
 
 });
 
+minispade.register('fixtures/Slide.js', function() {
+var slide0, slide1, slide2, slide3, slide4, slide5;
+
+slide0 = {
+  id: 0,
+  title: "Best Slide",
+  content: "##Heyo",
+  number: 1,
+  video: 0
+};
+
+slide1 = {
+  id: 1,
+  title: "Such Slide",
+  content: "##Another fucking super cool slide",
+  number: 2,
+  video: 0
+};
+
+slide2 = {
+  id: 2,
+  title: "Wow So slide",
+  content: "##Heyo",
+  number: 3,
+  video: 0
+};
+
+slide3 = {
+  id: 3,
+  title: "Not Slide",
+  content: "##Donkeys always have more friends",
+  number: 1,
+  video: 1
+};
+
+slide4 = {
+  id: 4,
+  title: "Such Doge",
+  content: "##This is a great goddamn slide Charles",
+  number: 1,
+  video: 2
+};
+
+slide5 = {
+  id: 5,
+  title: "No Cate",
+  content: "##More greatness.. amazing Susan just amazing.",
+  number: 2,
+  video: 2
+};
+
+App.Slide.FIXTURES = [slide0, slide1, slide2, slide3, slide4, slide5];
+
+});
+
 minispade.register('fixtures/Video.js', function() {
 var video1, video2, video3;
 
 video1 = {
   id: 0,
-  body: "#Hey you guys\n###let's talk about why this isn't workin\nSometimes it just seems like the devil is going to take all the cheese na mean?  Ya dawg, dat cheeze.",
+  slides: [0, 1, 2],
   title: "Whatever you want bro",
   subtitle: "Johnny 5 checks out for good",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
@@ -137,7 +200,7 @@ video1 = {
 
 video2 = {
   id: 1,
-  body: "###Heyoooo",
+  slides: [3],
   title: "Freedom from tyranny",
   subtitle: "How the west was won",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
@@ -147,7 +210,7 @@ video2 = {
 
 video3 = {
   id: 2,
-  body: "#Yo dog",
+  slides: [4, 5],
   title: "Do it up",
   subtitle: "Darmok and Jalad at Tanagra",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
@@ -174,16 +237,36 @@ App.FloatLabelMixin = Ember.Mixin.create({
 
 });
 
-minispade.register('models/Video.js', function() {
-var attr;
+minispade.register('models/Slide.js', function() {
+var attr, belongsTo;
 
 attr = DS.attr;
 
+belongsTo = DS.belongsTo;
+
+App.Slide = DS.Model.extend({
+  title: attr(),
+  content: attr(),
+  number: attr(),
+  video: belongsTo("video")
+});
+
+});
+
+minispade.register('models/Video.js', function() {
+var attr, hasMany;
+
+attr = DS.attr;
+
+hasMany = DS.hasMany;
+
 App.Video = DS.Model.extend({
+  slides: hasMany("slide", {
+    async: true
+  }),
   title: attr(),
   subtitle: attr(),
   summary: attr(),
-  body: attr(),
   mp4_url: attr(),
   archived: attr(),
   slug: Ember.computed("title", function() {
