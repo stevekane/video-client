@@ -16,7 +16,7 @@ minispade.register('Components.js', function() {
 minispade.require('components/KaneCreateVideoComponent.js');
 minispade.require('components/KaneVideoPreviewComponent.js');
 minispade.require('components/KaneVideoWrapperComponent.js');
-minispade.require('components/KaneFloatlabelInputComponent.js');
+minispade.require('components/KaneInputFloatlabelComponent.js');
 minispade.require('components/KaneTextareaFloatlabelComponent.js');
 
 });
@@ -97,8 +97,8 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
 
 });
 
-minispade.register('components/KaneFloatlabelInputComponent.js', function() {
-App.KaneFloatlabelInputComponent = Ember.Component.extend(App.FloatLabelMixin, {});
+minispade.register('components/KaneInputFloatlabelComponent.js', function() {
+App.KaneInputFloatlabelComponent = Ember.Component.extend(App.FloatLabelMixin, {});
 
 });
 

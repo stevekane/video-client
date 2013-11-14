@@ -60,7 +60,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
-Ember.TEMPLATES["components/kane-floatlabel-input"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["components/kane-input-floatlabel"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
@@ -193,7 +193,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
     'value': ("title"),
     'placeholder': ("TITLE")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers['kane-floatlabel-input'] || depth0['kane-floatlabel-input']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-floatlabel-input", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options))));
   data.buffer.push("\n        ");
   hashContexts = {'value': depth0,'placeholder': depth0};
   hashTypes = {'value': "ID",'placeholder': "STRING"};
@@ -201,7 +201,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
     'value': ("subtitle"),
     'placeholder': ("SUBTITLE")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers['kane-floatlabel-input'] || depth0['kane-floatlabel-input']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-floatlabel-input", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options))));
   data.buffer.push("\n        ");
   hashContexts = {'value': depth0,'rows': depth0,'placeholder': depth0};
   hashTypes = {'value': "ID",'rows': "INTEGER",'placeholder': "STRING"};
