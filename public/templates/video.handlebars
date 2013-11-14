@@ -1,34 +1,46 @@
-<section class="row">
+<header class="row">
+  <section class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <video height="100%" width="100%" {{bind-attr src="mp4_url"}}></video>
+      </div>
+      <div class="col-md-6">
+        {{kane-floatlabel-input 
+          value=title
+          placeholder="TITLE"}}
+        {{kane-floatlabel-input
+          value=subtitle
+          placeholder="SUBTITLE"}}
+        {{kane-textarea-floatlabel
+          value=summary
+          rows=4
+          placeholder="SUMMARY"}}
+      </div>
+    </div>
+  </section>
+</header>
 
+
+<section class="col-md-6">
   <header class="row">
-    <div class="col-md-12">
-      {{kane-floatlabel-input 
-        value=title
-        placeholder="TITLE"}}
+    <div class="col-md-12 well well-sm">
     </div>
   </header>
-  <section class="col-md-6">
-    <header class="row">
-      <div class="col-md-12 well well-sm">
-      </div>
-    </header>
 
-    <section class="row">
-      <div class="col-md-12">
-      </div>
-    </section>
+  <section class="row">
+    <div class="col-md-12">
+    </div>
   </section>
+</section>
 
-  <section class="col-md-6">
-    <header class="row">
-      <div class="col-md-12 well well-sm">
-      </div>
-    </header>
+<section class="col-md-6">
+  <header class="row">
+    <div class="col-md-12 well well-sm">
+    </div>
+  </header>
 
-    <div class="row">
-      <div class="col-md-12">
-      </div> 
-    </div>  
-  </section>
-
+  <div class="row">
+    <div class="col-md-12">
+    </div> 
+  </div>  
 </section>
