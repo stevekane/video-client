@@ -179,7 +179,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<header class=\"row\">\n  <section class=\"col-md-6\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <video height=\"100%\" width=\"100%\" ");
+  data.buffer.push("<header class=\"row\">\n  <section class=\"col-md-12\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <video height=\"100%\" width=\"100%\" ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "STRING"};
   options = {hash:{
