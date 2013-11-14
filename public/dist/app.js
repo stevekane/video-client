@@ -18,6 +18,8 @@ minispade.require('components/KaneVideoPreviewComponent.js');
 minispade.require('components/KaneVideoWrapperComponent.js');
 minispade.require('components/KaneInputFloatlabelComponent.js');
 minispade.require('components/KaneSlideComponent.js');
+minispade.require('components/KaneSlideEditableComponent.js');
+minispade.require('components/KaneSaveButtonComponent.js');
 
 });
 
@@ -104,8 +106,34 @@ App.KaneInputFloatlabelComponent = Ember.Component.extend(App.FloatLabelMixin, {
 
 });
 
+minispade.register('components/KaneSaveButtonComponent.js', function() {
+App.KaneSaveButtonComponent = Ember.Component.extend({
+  notDirty: Ember.computed.not("model.isDirty"),
+  actions: {
+    save: function(model) {
+      return this.sendAction("action", model);
+    }
+  }
+});
+
+});
+
 minispade.register('components/KaneSlideComponent.js', function() {
 App.KaneSlideComponent = Ember.Component.extend();
+
+});
+
+minispade.register('components/KaneSlideEditableComponent.js', function() {
+App.KaneSlideEditableComponent = Ember.Component.extend({
+  disabled: false,
+  actions: {
+    saveChanges: function(slide) {
+      var self;
+      self = this;
+      return slide.save();
+    }
+  }
+});
 
 });
 

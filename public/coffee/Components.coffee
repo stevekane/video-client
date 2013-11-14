@@ -5,3 +5,6 @@ require('components/KaneVideoWrapperComponent.js')
 require('components/KaneInputFloatlabelComponent.js')
 
 require('components/KaneSlideComponent.js')
+require('components/KaneSlideEditableComponent.js')
+
+require('components/KaneSaveButtonComponent.js')

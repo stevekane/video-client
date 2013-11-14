@@ -103,6 +103,112 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
+Ember.TEMPLATES["components/kane-save-button"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<button\nclass=\"btn btn-success\"\n");
+  hashContexts = {'disabled': depth0};
+  hashTypes = {'disabled': "STRING"};
+  options = {hash:{
+    'disabled': ("notDirty")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("\n");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "save", "model", {hash:{},contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n  SAVE\n  <i ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': (":glyphicon notDirty:glyphicon-saved:glyphicon-save")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push("></i>\n</button>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["components/kane-slide-editable"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n      ");
+  hashContexts = {'value': depth0,'classNames': depth0,'placeholder': depth0};
+  hashTypes = {'value': "ID",'classNames': "STRING",'placeholder': "STRING"};
+  options = {hash:{
+    'value': ("slide.title"),
+    'classNames': ("bare input-lg form-control"),
+    'placeholder': ("TITLE")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    ");
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n      ");
+  hashContexts = {'value': depth0,'rows': depth0,'classNames': depth0,'placeholder': depth0};
+  hashTypes = {'value': "ID",'rows': "INTEGER",'classNames': "STRING",'placeholder': "STRING"};
+  options = {hash:{
+    'value': ("slide.content"),
+    'rows': (12),
+    'classNames': ("bare input-lg form-control"),
+    'placeholder': ("CONTENT (MARKDOWN)")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.textarea || depth0.textarea),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
+  data.buffer.push("\n    ");
+  return buffer;
+  }
+
+  data.buffer.push("<div class=\"panel panel-info\">\n  <header class=\"panel-heading\">\n    ");
+  hashContexts = {'value': depth0,'label': depth0};
+  hashTypes = {'value': "ID",'label': "STRING"};
+  options = {hash:{
+    'value': ("slide.title"),
+    'label': ("TITLE")
+  },inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n  </header>\n\n  <div class=\"panel-body\">\n    ");
+  hashContexts = {'value': depth0,'label': depth0};
+  hashTypes = {'value': "ID",'label': "STRING"};
+  options = {hash:{
+    'value': ("slide.content"),
+    'label': ("CONTENT (MARKDOWN)")
+  },inverse:self.noop,fn:self.program(3, program3, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n  </div>\n\n  <footer class=\"panel-footer\">\n    <span>\n      Slide Number: ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.number", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" of ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.video.slides.length", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n    </span>\n    ");
+  hashContexts = {'model': depth0,'action': depth0};
+  hashTypes = {'model': "ID",'action': "STRING"};
+  options = {hash:{
+    'model': ("slide"),
+    'action': ("saveChanges")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-save-button'] || depth0['kane-save-button']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-save-button", options))));
+  data.buffer.push("\n  </footer>\n</div>\n");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["components/kane-slide"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -253,6 +359,40 @@ function program5(depth0,data) {
   return buffer;
   }
 
+function program7(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n        ");
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("slide")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide-editable'] || depth0['kane-slide-editable']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide-editable", options))));
+  data.buffer.push("\n      ");
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  
+  data.buffer.push("\n        <h3 class=\"text-danger\">No slides</h3> \n      ");
+  }
+
+function program11(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n        ");
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("slide")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide'] || depth0['kane-slide']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide", options))));
+  data.buffer.push("\n      ");
+  return buffer;
+  }
+
   data.buffer.push("<header class=\"row\">\n  <section class=\"col-md-12\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        ");
   hashContexts = {'value': depth0,'label': depth0};
   hashTypes = {'value': "ID",'label': "STRING"};
@@ -280,7 +420,17 @@ function program5(depth0,data) {
   },inverse:self.noop,fn:self.program(5, program5, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n      </div>\n    </div>\n  </section>\n</header>\n\n\n<section class=\"col-md-6\">\n  <header class=\"row\">\n    <div class=\"col-md-12 well well-sm\">\n    </div>\n  </header>\n\n  <section class=\"row\">\n    <div class=\"col-md-12\">\n    </div>\n  </section>\n</section>\n\n<section class=\"col-md-6\">\n  <header class=\"row\">\n    <div class=\"col-md-12 well well-sm\">\n    </div>\n  </header>\n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n    </div> \n  </div>  \n</section>\n");
+  data.buffer.push("\n      </div>\n    </div>\n  </section>\n</header>\n\n\n<section class=\"col-md-6\">\n  <header class=\"row\">\n    <div class=\"col-md-12 well well-sm\">\n      <small>SLIDES (MARKDOWN)</small>\n    </div>\n  </header>\n\n  <section class=\"row\">\n    <div class=\"col-md-12\">\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, "slide", "in", "slides", {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n    </div>\n  </section>\n</section>\n\n<section class=\"col-md-6\">\n  <header class=\"row\">\n    <div class=\"col-md-12 well well-sm\">\n      <small>PREVIEW</small>\n    </div>\n  </header>\n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, "slide", "in", "slides", {hash:{},inverse:self.program(9, program9, data),fn:self.program(11, program11, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n    </div> \n  </div>  \n</section>\n");
   return buffer;
   
 });

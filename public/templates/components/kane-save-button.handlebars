@@ -1,0 +1,7 @@
+<button
+class="btn btn-success"
+{{bind-attr disabled="notDirty"}}
+{{action "save" model}}>
+  SAVE
+  <i {{bind-attr class=":glyphicon notDirty:glyphicon-saved:glyphicon-save"}}></i>
+</button>

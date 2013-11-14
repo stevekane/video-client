@@ -34,11 +34,17 @@
 <section class="col-md-6">
   <header class="row">
     <div class="col-md-12 well well-sm">
+      <small>SLIDES (MARKDOWN)</small>
     </div>
   </header>
 
   <section class="row">
     <div class="col-md-12">
+      {{#each slide in slides}}
+        {{kane-slide-editable slide=slide}}
+      {{else}}
+        <h3 class="text-danger">No slides</h3> 
+      {{/each}}
     </div>
   </section>
 </section>
@@ -46,11 +52,17 @@
 <section class="col-md-6">
   <header class="row">
     <div class="col-md-12 well well-sm">
+      <small>PREVIEW</small>
     </div>
   </header>
 
   <div class="row">
     <div class="col-md-12">
+      {{#each slide in slides}}
+        {{kane-slide slide=slide}}
+      {{else}}
+        <h3 class="text-danger">No slides</h3> 
+      {{/each}}
     </div> 
   </div>  
 </section>

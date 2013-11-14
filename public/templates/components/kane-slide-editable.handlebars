@@ -1,0 +1,31 @@
+<div class="panel panel-info">
+  <header class="panel-heading">
+    {{#kane-input-floatlabel
+      value=slide.title
+      label="TITLE"}}
+      {{input
+        value=slide.title
+        classNames="bare input-lg form-control"
+        placeholder="TITLE"}}
+    {{/kane-input-floatlabel}}
+  </header>
+
+  <div class="panel-body">
+    {{#kane-input-floatlabel
+      value=slide.content
+      label="CONTENT (MARKDOWN)"}}
+      {{textarea
+        value=slide.content
+        rows=12
+        classNames="bare input-lg form-control"
+        placeholder="CONTENT (MARKDOWN)"}}
+    {{/kane-input-floatlabel}}
+  </div>
+
+  <footer class="panel-footer">
+    <span>
+      Slide Number: {{slide.number}} of {{slide.video.slides.length}}
+    </span>
+    {{kane-save-button model=slide action="saveChanges"}}
+  </footer>
+</div>
