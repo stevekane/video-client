@@ -1,5 +1,6 @@
 window.App = Ember.Application.create()
 
+require('Mixins.js')
 require('Components.js')
 require('Controllers.js')
 require('Models.js')
@@ -7,4 +8,3 @@ require('Fixtures.js')
 require('Router.js')
 require('Store.js')
 require('Utils.js')
-require('Mixins.js')

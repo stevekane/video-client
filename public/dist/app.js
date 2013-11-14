@@ -1,5 +1,6 @@
 minispade.register('Application.js', function() {
 window.App = Ember.Application.create();
+minispade.require('Mixins.js');
 minispade.require('Components.js');
 minispade.require('Controllers.js');
 minispade.require('Models.js');
@@ -7,7 +8,6 @@ minispade.require('Fixtures.js');
 minispade.require('Router.js');
 minispade.require('Store.js');
 minispade.require('Utils.js');
-minispade.require('Mixins.js');
 
 });
 
@@ -35,6 +35,7 @@ minispade.require('fixtures/Video.js');
 
 minispade.register('Mixins.js', function() {
 
+minispade.require('mixins/FloatLabelMixin.js');
 
 });
 
@@ -97,18 +98,12 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
 });
 
 minispade.register('components/KaneFloatlabelInputComponent.js', function() {
-App.KaneFloatlabelInputComponent = Ember.Component.extend({
-  classNames: ["float-label-wrapper"],
-  showFloatLabel: Ember.computed.bool("value")
-});
+App.KaneFloatlabelInputComponent = Ember.Component.extend(App.FloatLabelMixin, {});
 
 });
 
 minispade.register('components/KaneTextareaFloatlabelComponent.js', function() {
-App.KaneTextareaFloatlabelComponent = Ember.Component.extend({
-  classNames: ["float-label-wrapper"],
-  showFloatLabel: Ember.computed.bool("value")
-});
+App.KaneTextareaFloatlabelComponent = Ember.Component.extend(App.FloatLabelMixin, {});
 
 });
 
@@ -167,6 +162,21 @@ video3 = {
 };
 
 App.Video.FIXTURES = [video1, video2, video3];
+
+});
+
+minispade.register('mixins/FloatLabelMixin.js', function() {
+App.FloatLabelMixin = Ember.Mixin.create({
+  classNames: ["float-label-wrapper"],
+  focused: false,
+  showFloatLabel: Ember.computed.bool("value"),
+  focusIn: function(e) {
+    return this.set("focused", true);
+  },
+  focusOut: function(e) {
+    return this.set("focused", false);
+  }
+});
 
 });
 
