@@ -1,9 +1,6 @@
 <span
   {{bind-attr
     class=":float-label showFloatLabel:float-label-active: focused:float-label-focused:"}}>
-  {{placeholder}}
+  {{label}}
 </span>
-{{input type=type
-  classNames="form-control"
-  placeholder=placeholder
-  value=value}}
+{{yield}}

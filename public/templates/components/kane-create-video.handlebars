@@ -5,6 +5,12 @@
       <i class="glyphicon glyphicon-plus-sign"></i>
     </button>
   </div>
-  {{kane-input-floatlabel
-    placeholder="NEW VIDEO TITLE"}}
+  {{#kane-input-floatlabel
+    value=newTitle
+    label="NEW TITLE"}}
+    {{input
+      value=newTitle
+      placeholder="NEW TITLE"
+      classNames="form-control"}}
+  {{/kane-input-floatlabel}}
 </div>

@@ -3,4 +3,3 @@ require('components/KaneVideoPreviewComponent.js')
 require('components/KaneVideoWrapperComponent.js')
 
 require('components/KaneInputFloatlabelComponent.js')
-require('components/KaneTextareaFloatlabelComponent.js')
