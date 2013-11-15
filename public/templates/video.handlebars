@@ -31,17 +31,20 @@
 </header>
 
 
-<section class="col-md-6">
+<section class="col-md-2">
   <header class="row">
-    <div class="col-md-12 well well-sm">
-      <small>SLIDES (MARKDOWN)</small>
+    <div class="col-md-12">
+      <small>THUMBNAILS</small>
+      <video height="100%" width="100%" controls
+        {{bind-attr src="mp4_url"}}>
+      </video>
     </div>
   </header>
 
   <section class="row">
     <div class="col-md-12">
       {{#each slide in slides}}
-        {{kane-slide-editable slide=slide}}
+        {{kane-slide-thumbnail slide=slide}}
       {{else}}
         <h3 class="text-danger">No slides</h3> 
       {{/each}}
@@ -49,10 +52,23 @@
   </section>
 </section>
 
-<section class="col-md-6">
+<section class="col-md-5">
   <header class="row">
-    <div class="col-md-12 well well-sm">
-      <small>PREVIEW</small>
+    <div class="col-md-12">
+      <small>SLIDES (MARKDOWN)</small>
+    </div>
+  </header>
+</section>
+
+<section class="col-md-5">
+  <header class="row">
+    <div class="col-md-12">
+      <small>EDIT!</small>
+      {{#each slide in slides}}
+        {{kane-slide-thumbnail slide=slide}}
+      {{else}}
+        <h3 class="text-danger">No slides</h3> 
+      {{/each}}
     </div>
   </header>
 

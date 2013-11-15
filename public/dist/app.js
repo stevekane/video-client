@@ -19,6 +19,7 @@ minispade.require('components/KaneVideoWrapperComponent.js');
 minispade.require('components/KaneInputFloatlabelComponent.js');
 minispade.require('components/KaneSlideComponent.js');
 minispade.require('components/KaneSlideEditableComponent.js');
+minispade.require('components/KaneSlideThumbnailComponent.js');
 minispade.require('components/KaneSaveButtonComponent.js');
 
 });
@@ -133,6 +134,13 @@ App.KaneSlideEditableComponent = Ember.Component.extend({
       return slide.save();
     }
   }
+});
+
+});
+
+minispade.register('components/KaneSlideThumbnailComponent.js', function() {
+App.KaneSlideThumbnailComponent = Ember.Component.extend({
+  classNames: ["thumbnail"]
 });
 
 });
