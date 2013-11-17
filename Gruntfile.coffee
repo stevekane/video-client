@@ -4,7 +4,7 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     #vendor directory and specific dependencies
-    vendor: "public/vendor"
+    vendorDir: "public/vendor"
 
     #coffee files and outputted JS
     coffeeDir: "public/coffee"
@@ -20,6 +20,11 @@ module.exports = (grunt) ->
     sassDir: "public/sass"
     mainSassFile: "app.sass"
     sassCompiled: "appsass.css"
+
+    #less files
+    lessDir: "public/less"
+    mainLessFile: "app.less"
+    lessCompiled: "appless.css"
 
     #output files
     distDir: "public/dist"
@@ -60,7 +65,6 @@ module.exports = (grunt) ->
         dest: '<%= distDir %>/<%= srcJS %>'
 
 
-
     #LANGUAGE COMPILATION / TRANSPILING
     coffee:
       tests:
@@ -84,6 +88,13 @@ module.exports = (grunt) ->
           dest: '<%= compiledJS %>'
           ext: '.js'
         ]
+
+    less:
+      dist:
+        options:
+          paths: ['<%= lessDir %>', '<%= vendorDir %>/bootstrap/less']
+        files:
+          '<%= distDir %>/<%= lessCompiled %>': '<%= lessDir %>/<%= mainLessFile %>'
 
     sass:
       dist:
@@ -112,12 +123,17 @@ module.exports = (grunt) ->
         options:
           livereload: true
 
+      less:
+        files: ['<%= lessDir %>/**/*.less']
+        tasks: ['less']
+        options:
+          livereload: true
+
       sass:
         files: ['<%= sassDir %>/**/*.sass']
         tasks: ['sass']
         options:
           livereload: true
-
       coffee:
         files: ['<%= coffeeDir %>/**/*.coffee', '<%= coffeeTests %>/**/*.coffee']
         tasks: ['clean', 'coffee', 'minispade']
@@ -133,6 +149,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-minispade')
   grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-ember-templates')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
@@ -153,6 +170,7 @@ module.exports = (grunt) ->
       'minispade',
       'emberTemplates',
       'sass',
+      'less',
       'connect',
       'open:localhost',
       'watch'
@@ -166,6 +184,7 @@ module.exports = (grunt) ->
       'minispade',
       'emberTemplates',
       'sass',
+      'less',
       'open:localhost',
       'watch'
     ]
@@ -178,5 +197,6 @@ module.exports = (grunt) ->
       'minispade',
       'emberTemplates',
       'sass',
+      'less'
     ]
   )

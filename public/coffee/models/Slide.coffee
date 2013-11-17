@@ -1,7 +1,7 @@
 attr = DS.attr
 belongsTo = DS.belongsTo
 
-App.Slide = DS.Model.extend
+App.Slide = App.ArchiveModel.extend
 
   title: attr()
   content: attr()

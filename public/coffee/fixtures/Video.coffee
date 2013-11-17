@@ -5,7 +5,6 @@ video1 =
   subtitle: "Johnny 5 checks out for good",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned"
   mp4_url: "/public/videos/test.mp4",
-  archived: false
 
 video2 =
   id: 1,
@@ -14,7 +13,6 @@ video2 =
   subtitle: "How the west was won",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned"
   mp4_url: "/public/videos/test.mp4",
-  archived: false
 
 video3 =
   id: 2,
@@ -23,7 +21,6 @@ video3 =
   subtitle: "Darmok and Jalad at Tanagra",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned"
   mp4_url: "/public/videos/test.mp4",
-  archived: false
 
 App.Video.FIXTURES = [
   video1, video2, video3

@@ -45,6 +45,7 @@ minispade.require('mixins/FloatLabelMixin.js');
 
 minispade.register('Models.js', function() {
 
+minispade.require('models/ArchiveModel.js');
 minispade.require('models/Video.js');
 minispade.require('models/Slide.js');
 
@@ -96,6 +97,30 @@ App.KaneCreateVideoComponent = Ember.Component.extend({
         title: newTitle
       });
       return this.set("newTitle", "");
+    }
+  }
+});
+
+});
+
+minispade.register('components/KaneCrudContainerComponent.js', function() {
+App.KaneCrudContainerComponent = Ember.Component.extend({
+  disabled: false,
+  actions: {
+    save: function(model) {
+      var self;
+      self = this;
+      self.set("disabled", true);
+      return model.save().then(function() {
+        return self.set('disabled', false);
+      }).fail(function() {
+        return self.set('disabled', false);
+      });
+    },
+    remove: function(model) {
+      var self;
+      self = this;
+      return self.set("archived", true);
     }
   }
 });
@@ -230,8 +255,7 @@ video1 = {
   title: "Whatever you want bro",
   subtitle: "Johnny 5 checks out for good",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
-  mp4_url: "/public/videos/test.mp4",
-  archived: false
+  mp4_url: "/public/videos/test.mp4"
 };
 
 video2 = {
@@ -240,8 +264,7 @@ video2 = {
   title: "Freedom from tyranny",
   subtitle: "How the west was won",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
-  mp4_url: "/public/videos/test.mp4",
-  archived: false
+  mp4_url: "/public/videos/test.mp4"
 };
 
 video3 = {
@@ -250,11 +273,31 @@ video3 = {
   title: "Do it up",
   subtitle: "Darmok and Jalad at Tanagra",
   summary: "In this script we will discuss the prospects for survival on a cold dark earth after man has moved on and dinosaurs have returned",
-  mp4_url: "/public/videos/test.mp4",
-  archived: false
+  mp4_url: "/public/videos/test.mp4"
 };
 
 App.Video.FIXTURES = [video1, video2, video3];
+
+});
+
+minispade.register('mixins/CrudMixin.js', function() {
+App.CrudMixin = Ember.Mixin.create({
+  save: function(model) {
+    var self;
+    self = this;
+    self.set("disabled", true);
+    return model.save().then(function() {
+      return self.set('disabled', false);
+    }).fail(function() {
+      return self.set('disabled', false);
+    });
+  },
+  remove: function(model) {
+    var self;
+    self = this;
+    return self.set("archived", true);
+  }
+});
 
 });
 
@@ -273,6 +316,15 @@ App.FloatLabelMixin = Ember.Mixin.create({
 
 });
 
+minispade.register('models/ArchiveModel.js', function() {
+App.ArchiveModel = DS.Model.extend({
+  archived: DS.attr(Boolean, {
+    defaultValue: false
+  })
+});
+
+});
+
 minispade.register('models/Slide.js', function() {
 var attr, belongsTo;
 
@@ -280,7 +332,7 @@ attr = DS.attr;
 
 belongsTo = DS.belongsTo;
 
-App.Slide = DS.Model.extend({
+App.Slide = App.ArchiveModel.extend({
   title: attr(),
   content: attr(),
   number: attr(),
@@ -290,21 +342,24 @@ App.Slide = DS.Model.extend({
 });
 
 minispade.register('models/Video.js', function() {
-var attr, hasMany;
+var attr, emptyString, hasMany;
 
 attr = DS.attr;
 
 hasMany = DS.hasMany;
 
-App.Video = DS.Model.extend({
+emptyString = DS.attr(String, {
+  defaultValue: ""
+});
+
+App.Video = App.ArchiveModel.extend({
   slides: hasMany("slide", {
     async: true
   }),
-  title: attr(),
-  subtitle: attr(),
-  summary: attr(),
-  mp4_url: attr(),
-  archived: attr(),
+  title: emptyString,
+  subtitle: emptyString,
+  summary: emptyString,
+  mp4_url: emptyString,
   slug: Ember.computed("title", function() {
     return Ember.String.dasherize(this.get('title'));
   })
