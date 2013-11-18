@@ -1,5 +1,16 @@
 @import "bootstrap.less";
+@import "colors.less";
+@import "overrides.less";
+@import "containers.less";
+@import "animations.less";
+@import "pages.less";
 
 body {
-  background-color: red;
+  padding-top: 50px;
+}
+
+.main-content {
+  .make-lg-column(12);
+  .make-md-column(12);
+  .wrapper-thick(@gray-light);
 }

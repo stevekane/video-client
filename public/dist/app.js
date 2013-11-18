@@ -60,13 +60,22 @@ minispade.require('routes/Videos/Detail.js');
 minispade.require('routes/Video.js');
 
 App.Router.map(function() {
-  this.resource("videos", function() {
+  this.resource("videos", {
+    path: "/videos"
+  }, function() {
     return this.route("detail", {
       path: "/:video_id/:video_slug"
     });
   });
   return this.resource("video", {
     path: "/video/:video_id"
+  }, function() {
+    this.resource("slides", {
+      path: "/slides"
+    });
+    return this.resource("slide", {
+      path: "/slide/:slide_id"
+    });
   });
 });
 

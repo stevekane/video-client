@@ -1,38 +1,50 @@
-<div class="slide-thumbnails">
-  <ol>
+<div class="page-section">
+  <ol class="slide-thumbnails">
     {{#each slide in slides}}
-      <li>{{slide.title}}</li>
+      {{#link-to "slide" slide
+        tagName="li"
+        classNames="thumbnail-slide"}}
+        <small class="slide-number">{{slide.number}}</small>
+        <p class="slide-content">{{slide.title}}</p>
+      {{/link-to}}
     {{/each}}
   </ol>
 </div>
 
-<div class="video-details">
-  <form role="form">
-    <fieldset>
-      {{#kane-input-floatlabel value=title label="TITLE"}}
-        {{input value=title
-          classNames="form-component"
-          placeholder="TITLE"}}
-      {{/kane-input-floatlabel}}
-      {{#kane-input-floatlabel value=subtitle label="SUBTITLE"}}
-        {{input value=subtitle
-          classNames="form-component"
-          placeholder="SUBTITLE"}}
-      {{/kane-input-floatlabel}}
-      {{#kane-input-floatlabel value=summary label="SUMMARY"}}
-        {{textarea value=summary
-          classNames="form-component"
-          placeholder="SUMMARY"}}
-      {{/kane-input-floatlabel}}
-    </fieldset> 
-  </form>
-</div>
+<section class="page-section">
+  <aside class="detail-panel">
+    <div class="video-container">
+      <video {{bind-attr src=mp4_url}}
+        height="100%"
+        width="100%"
+        controls>
+      </video>
+    </div>
 
-<div class="video-container">
-  <video {{bind-attr src=mp4_url}} height="100%" width="100%">
-  </video>
-</div>
+    <div class="video-details">
+      <form role="form">
+        <fieldset>
+          {{#kane-input-floatlabel value=title label="TITLE"}}
+            {{input value=title
+              classNames="form-control"
+              placeholder="TITLE"}}
+          {{/kane-input-floatlabel}}
+          {{#kane-input-floatlabel value=subtitle label="SUBTITLE"}}
+            {{input value=subtitle
+              classNames="form-control"
+              placeholder="SUBTITLE"}}
+          {{/kane-input-floatlabel}}
+          {{#kane-input-floatlabel value=summary label="SUMMARY"}}
+            {{textarea value=summary
+              classNames="form-control"
+              placeholder="SUMMARY"}}
+          {{/kane-input-floatlabel}}
+        </fieldset> 
+      </form>
+    </div>
+  </aside>
 
-<div class="slide-container">
-  {{outlet}}
-</div>
+  <div>
+    {{outlet}}
+  </div>
+</section>
