@@ -498,7 +498,7 @@ function program1(depth0,data) {
     'tagName': ("li"),
     'classNames': ("thumbnail-slide")
   },inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "slide", "slide", options) : helperMissing.call(depth0, "link-to", "slide", "slide", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.slide", "slide", options) : helperMissing.call(depth0, "link-to", "video.slide", "slide", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n    ");
   return buffer;
@@ -611,6 +611,41 @@ function program8(depth0,data) {
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n  </div>\n</section>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["video/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("<h1>I'm dat index</h1>\n");
+  
+});
+
+Ember.TEMPLATES["video/slide"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<div class=\"video-markdown\">\n  ");
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("content")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide-editable'] || depth0['kane-slide-editable']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide-editable", options))));
+  data.buffer.push("\n</div>\n<div class=\"video-detail\">\n  ");
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("content")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide'] || depth0['kane-slide']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide", options))));
+  data.buffer.push("\n</div>\n");
   return buffer;
   
 });

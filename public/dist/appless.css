@@ -6030,7 +6030,6 @@ td.visible-print {
   -moz-transition: color 0.3s ease, background-color 0.3s ease;
   -ms-transition: color 0.3s ease, background-color 0.3s ease;
   transition: color 0.3s ease, background-color 0.3s ease;
-  font-size: 1.2em;
 }
 .thumbnail-slide:hover .slide-number {
   -webkit-transition: color 0.3s ease, background-color 0.3s ease;
@@ -6046,11 +6045,46 @@ td.visible-print {
 }
 .thumbnail-slide.active .slide-content {
   color: white !important;
-  font-size: 1.2em;
 }
 .thumbnail-slide.active .slide-number {
   color: white !important;
   font-size: 1em;
+}
+.video-markdown {
+  position: relative;
+  min-height: 1px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+@media (min-width: 1200px) {
+  .video-markdown {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+@media (min-width: 992px) {
+  .video-markdown {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+.video-detail {
+  position: relative;
+  min-height: 1px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+@media (min-width: 1200px) {
+  .video-detail {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+@media (min-width: 992px) {
+  .video-detail {
+    float: left;
+    width: 33.33333333333333%;
+  }
 }
 body {
   padding-top: 50px;

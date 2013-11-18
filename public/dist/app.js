@@ -70,10 +70,7 @@ App.Router.map(function() {
   return this.resource("video", {
     path: "/video/:video_id"
   }, function() {
-    this.resource("slides", {
-      path: "/slides"
-    });
-    return this.resource("slide", {
+    return this.resource("video.slide", {
       path: "/slide/:slide_id"
     });
   });

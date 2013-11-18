@@ -11,5 +11,4 @@ App.Router.map ->
     @route "detail", {path: "/:video_id/:video_slug"}
   
   @resource "video", {path: "/video/:video_id"}, ->
-    @resource "slides", {path: "/slides"}
-    @resource "slide", {path: "/slide/:slide_id"}
+    @resource "video.slide", {path: "/slide/:slide_id"}
