@@ -1,6 +1,7 @@
 .detail-panel {
   .make-lg-column(4);
   .make-md-column(4);
+  .wrapper-thin(@gray-light);
 }
 
 .video-details {
@@ -27,7 +28,8 @@
   padding: 0px;
   height: 40px;
   background-color: white;
-  .animate-colors;
+  overflow: hidden;
+  white-space: nowrap;
 
   .slide-number {
     position: absolute;
@@ -39,6 +41,7 @@
   .slide-content {
     position: absolute; 
     margin: 0px;
+    text-align: center;
     left: 4px;
     bottom: 4px;
     font-size: 1em;
@@ -47,14 +50,28 @@
   &:hover {
     background-color: @gray-dark;
     color: white;
+
+    .slide-content {
+      .animate-colors;
+      font-size: 1.2em;
+    }
     .slide-number {
       .animate-colors;
       color: @orange; 
+      font-size: 1em;
     }
   }
 }
 
 .thumbnail-slide.active {
-  background-color: @orange;
-  color: white;
+  background-color: @orange !important;
+  font-weight: bold;
+  .slide-content {
+    color: white !important;
+    font-size: 1.2em;
+  }
+  .slide-number {
+    color: white !important;
+    font-size: 1em;
+  }
 }

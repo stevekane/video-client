@@ -486,7 +486,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["video"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
 function program1(depth0,data) {
   
@@ -505,7 +505,7 @@ function program1(depth0,data) {
   }
 function program2(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
+  var buffer = '', stack1, hashTypes, hashContexts, options;
   data.buffer.push("\n        <small class=\"slide-number\">");
   hashTypes = {};
   hashContexts = {};
@@ -513,7 +513,8 @@ function program2(depth0,data) {
   data.buffer.push("</small>\n        <p class=\"slide-content\">");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "slide.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.upperCase || depth0.upperCase),stack1 ? stack1.call(depth0, "slide.title", options) : helperMissing.call(depth0, "upperCase", "slide.title", options))));
   data.buffer.push("</p>\n      ");
   return buffer;
   }

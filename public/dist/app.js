@@ -445,4 +445,8 @@ Ember.Handlebars.registerBoundHelper("markdown", function(text) {
   }
 });
 
+Ember.Handlebars.registerBoundHelper("upperCase", function(text) {
+  return text.toUpperCase();
+});
+
 });
