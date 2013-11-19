@@ -58,6 +58,9 @@ minispade.require('routes/Index.js');
 minispade.require('routes/Videos.js');
 minispade.require('routes/Videos/Detail.js');
 minispade.require('routes/Video.js');
+minispade.require('routes/Video/Slide.js');
+minispade.require('routes/Video/Slide/Markdown.js');
+minispade.require('routes/Video/Slide/Detail.js');
 
 App.Router.map(function() {
   this.resource("videos", {
@@ -72,6 +75,9 @@ App.Router.map(function() {
   }, function() {
     return this.resource("video.slide", {
       path: "/slide/:slide_id"
+    }, function() {
+      this.route("markdown");
+      return this.route("detail");
     });
   });
 });
@@ -399,6 +405,29 @@ App.IndexRoute = Ember.Route.extend({
 
 minispade.register('routes/Video.js', function() {
 App.VideoRoute = Ember.Route.extend();
+
+});
+
+minispade.register('routes/Video/Slide.js', function() {
+App.VideoSlideRoute = Ember.Route.extend();
+
+});
+
+minispade.register('routes/Video/Slide/Detail.js', function() {
+App.VideoSlideDetailRoute = Ember.Route.extend({
+  model: function() {
+    return this.modelFor("video.slide");
+  }
+});
+
+});
+
+minispade.register('routes/Video/Slide/Markdown.js', function() {
+App.VideoSlideMarkdownRoute = Ember.Route.extend({
+  model: function() {
+    return this.modelFor("video.slide");
+  }
+});
 
 });
 

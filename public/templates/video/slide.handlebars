@@ -1,6 +1,7 @@
-<div class="video-markdown">
-  {{kane-slide-editable slide=content}}
-</div>
-<div class="video-detail">
-  {{kane-slide slide=content}}
-</div>
+<header class="section-header">
+  {{#link-to "video.slide.markdown"}}MARKDOWN{{/link-to}}
+  {{#link-to "video.slide.detail"}}DETAIL{{/link-to}}
+</header>
+<section>
+  {{outlet}}
+</section>

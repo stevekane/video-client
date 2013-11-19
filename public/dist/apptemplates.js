@@ -498,7 +498,7 @@ function program1(depth0,data) {
     'tagName': ("li"),
     'classNames': ("thumbnail-slide")
   },inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.slide", "slide", options) : helperMissing.call(depth0, "link-to", "video.slide", "slide", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.slide.markdown", "slide", options) : helperMissing.call(depth0, "link-to", "video.slide.markdown", "slide", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n    ");
   return buffer;
@@ -572,7 +572,7 @@ function program8(depth0,data) {
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "slide", "in", "slides", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </ol>\n</div>\n\n<section class=\"page-section\">\n  <aside class=\"detail-panel\">\n    <div class=\"video-container\">\n      <video ");
+  data.buffer.push("\n  </ol>\n</div>\n\n<section class=\"page-section\">\n  <aside class=\"detail-panel\">\n    <header class=\"section-header\">\n      VIDEO\n    </header>\n    <div class=\"video-container\">\n      <video ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "ID"};
   options = {hash:{
@@ -606,7 +606,7 @@ function program8(depth0,data) {
   },inverse:self.noop,fn:self.program(8, program8, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['kane-input-floatlabel'] || depth0['kane-input-floatlabel']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-input-floatlabel", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </fieldset> \n      </form>\n    </div>\n  </aside>\n\n  <div>\n    ");
+  data.buffer.push("\n        </fieldset> \n      </form>\n    </div>\n  </aside>\n\n  <div class=\"main-panel\">\n    ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -628,24 +628,71 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["video/slide"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  
+  data.buffer.push("MARKDOWN");
+  }
+
+function program3(depth0,data) {
+  
+  
+  data.buffer.push("DETAIL");
+  }
+
+  data.buffer.push("<header class=\"section-header\">\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.slide.markdown", options) : helperMissing.call(depth0, "link-to", "video.slide.markdown", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "video.slide.detail", options) : helperMissing.call(depth0, "link-to", "video.slide.detail", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n</header>\n<section>\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n</section>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["video/slide/detail"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"video-markdown\">\n  ");
-  hashContexts = {'slide': depth0};
-  hashTypes = {'slide': "ID"};
-  options = {hash:{
-    'slide': ("content")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide-editable'] || depth0['kane-slide-editable']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide-editable", options))));
-  data.buffer.push("\n</div>\n<div class=\"video-detail\">\n  ");
   hashContexts = {'slide': depth0};
   hashTypes = {'slide': "ID"};
   options = {hash:{
     'slide': ("content")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide'] || depth0['kane-slide']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide", options))));
-  data.buffer.push("\n</div>\n");
+  data.buffer.push("\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["video/slide/markdown"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  hashContexts = {'slide': depth0};
+  hashTypes = {'slide': "ID"};
+  options = {hash:{
+    'slide': ("content")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['kane-slide-editable'] || depth0['kane-slide-editable']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "kane-slide-editable", options))));
+  data.buffer.push("\n");
   return buffer;
   
 });

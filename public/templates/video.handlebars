@@ -1,7 +1,7 @@
 <div class="page-section">
   <ol class="slide-thumbnails">
     {{#each slide in slides}}
-      {{#link-to "video.slide" slide
+      {{#link-to "video.slide.markdown" slide
         tagName="li"
         classNames="thumbnail-slide"}}
         <small class="slide-number">{{slide.number}}</small>
@@ -13,6 +13,9 @@
 
 <section class="page-section">
   <aside class="detail-panel">
+    <header class="section-header">
+      VIDEO
+    </header>
     <div class="video-container">
       <video {{bind-attr src=mp4_url}}
         height="100%"
@@ -44,7 +47,7 @@
     </div>
   </aside>
 
-  <div>
+  <div class="main-panel">
     {{outlet}}
   </div>
 </section>

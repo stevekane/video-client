@@ -5899,7 +5899,7 @@ td.visible-print {
   padding-right: 2.5px;
   padding: 3px;
   margin: 0px;
-  background-color: #cdc9c9;
+  background-color: #222222;
 }
 @media (min-width: 1200px) {
   .detail-panel {
@@ -5911,6 +5911,27 @@ td.visible-print {
   .detail-panel {
     float: left;
     width: 33.33333333333333%;
+  }
+}
+.main-panel {
+  position: relative;
+  min-height: 1px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+  padding: 3px;
+  margin: 0px;
+  background-color: #222222;
+}
+@media (min-width: 1200px) {
+  .main-panel {
+    float: left;
+    width: 66.66666666666666%;
+  }
+}
+@media (min-width: 992px) {
+  .main-panel {
+    float: left;
+    width: 66.66666666666666%;
   }
 }
 .video-details {
@@ -5968,7 +5989,7 @@ td.visible-print {
   padding-right: 2.5px;
   padding: 3px;
   margin: 0px;
-  background-color: #cdc9c9;
+  background-color: #222222;
 }
 @media (min-width: 1200px) {
   .slide-thumbnails {
@@ -6017,12 +6038,12 @@ td.visible-print {
   position: absolute;
   margin: 0px;
   text-align: center;
-  left: 4px;
+  right: 4px;
   bottom: 4px;
   font-size: 1em;
 }
 .thumbnail-slide:hover {
-  background-color: #222222;
+  background-color: #cdc9c9;
   color: white;
 }
 .thumbnail-slide:hover .slide-content {
@@ -6050,41 +6071,17 @@ td.visible-print {
   color: white !important;
   font-size: 1em;
 }
-.video-markdown {
-  position: relative;
-  min-height: 1px;
-  padding-left: 2.5px;
-  padding-right: 2.5px;
+.section-header {
+  color: white;
 }
-@media (min-width: 1200px) {
-  .video-markdown {
-    float: left;
-    width: 33.33333333333333%;
-  }
+.section-header a {
+  color: white;
+  text-decoration: none;
 }
-@media (min-width: 992px) {
-  .video-markdown {
-    float: left;
-    width: 33.33333333333333%;
-  }
-}
-.video-detail {
-  position: relative;
-  min-height: 1px;
-  padding-left: 2.5px;
-  padding-right: 2.5px;
-}
-@media (min-width: 1200px) {
-  .video-detail {
-    float: left;
-    width: 33.33333333333333%;
-  }
-}
-@media (min-width: 992px) {
-  .video-detail {
-    float: left;
-    width: 33.33333333333333%;
-  }
+.section-header a.active {
+  background-color: white;
+  padding: 2px 10px;
+  color: #fcc200;
 }
 body {
   padding-top: 50px;
